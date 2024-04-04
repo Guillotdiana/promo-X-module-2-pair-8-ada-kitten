@@ -48,4 +48,6 @@ const kittenThree = <li class="card">
 </li> ;
 
 const ulList = document.querySelector (".list");
-ulList.innerHTML + `<li>` 
+ulList.innerHTML = ulList.innerHTML + "<li>" + kittenOne + "</li>" + "<li>" + kittenTwo + "</li>" + "<li>" + kittenThree + "</li>";
+
+sectionList.innerHTML = ulList;
