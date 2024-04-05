@@ -1,6 +1,7 @@
 "use strict";
 
 const sectionList = document.querySelector (".js-list");
+
 const kittenOne = `<li class="card">
 <article>
   <img
@@ -17,7 +18,7 @@ const kittenOne = `<li class="card">
    </p>
 </article>
 </li>`;
-const kittenTwo = <li class="card">
+const kittenTwo = `<li class="card">
 <img
   class="card_img"
   src="https://dev.adalab.es/sphynx-gato.webp"
@@ -30,9 +31,9 @@ const kittenTwo = <li class="card">
   hasta con pinta de alienígena han llegado a definir a esta raza
   gatuna que se caracteriza por la «ausencia» de pelo.
 </p>
-</li> ;
+</li>` ;
 
-const kittenThree = <li class="card">
+const kittenThree = `<li class="card">
 <img
   class="card_img"
   src="https://dev.adalab.es/maine-coon-cat.webp"
@@ -45,9 +46,7 @@ const kittenThree = <li class="card">
   bella mirada se ha convertido en una de sus señas de identidad.
   Sus ojos son grandes y las orejas resultan largas y en punta.
 </p>
-</li> ;
+</li` ;
 
 const ulList = document.querySelector (".list");
-ulList.innerHTML = ulList.innerHTML + "<li>" + kittenOne + "</li>" + "<li>" + kittenTwo + "</li>" + "<li>" + kittenThree + "</li>";
-
-sectionList.innerHTML = ulList;
+ulList.innerHTML = kittenOne + kittenTwo + kittenThree;
