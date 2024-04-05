@@ -50,3 +50,23 @@ const kittenThree = `<li class="card">
 
 const ulList = document.querySelector (".list");
 ulList.innerHTML = kittenOne + kittenTwo + kittenThree;
+
+const formSection = document.querySelector('.collapsed');
+formSection.classList.remove('collapsed');
+
+const formMenu = document.querySelector(".js_formMenu");
+const buttonAdd = document.querySelector('.js-btn-add');
+
+
+buttonAdd.addEventListener("click", (event)=>{
+  event.preventDefault();
+  console.log('Holiiii');
+
+})
+
+const buttonCancel = document.querySelector('.js_btn_cancel');
+buttonCancel.addEventListener("click", (event)=>{
+  event.preventDefault();
+  console.log('Cancelar');
+  formMenu.classList.toggle(".hidden");
+})
