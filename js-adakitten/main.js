@@ -51,22 +51,21 @@ const kittenThree = `<li class="card">
 const ulList = document.querySelector (".list");
 ulList.innerHTML = kittenOne + kittenTwo + kittenThree;
 
+const buttonAdd = document.querySelector(".js-btn-add");
 const formSection = document.querySelector('.collapsed');
 formSection.classList.remove('collapsed');
-
-const formMenu = document.querySelector(".js_formMenu");
-const buttonAdd = document.querySelector('.js-btn-add');
-
-
 buttonAdd.addEventListener("click", (event)=>{
   event.preventDefault();
   console.log('Holiiii');
+  formSection.classList.toggle('collapsed');
+});
 
-})
-
-const buttonCancel = document.querySelector('.js_btn_cancel');
+const sectionMenu = document.querySelector(".js-section-menu");
+const buttonCancel = document.querySelector(".js_btn_cancel");
+const formMenu = document.querySelector('.js_formMenu');
 buttonCancel.addEventListener("click", (event)=>{
   event.preventDefault();
   console.log('Cancelar');
-  formMenu.classList.toggle(".hidden");
+  formSection.classList.add('collapsed');
+  formMenu.reset();
 })
