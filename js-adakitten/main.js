@@ -10,8 +10,8 @@ const kittenOne = `<li class="card">
     alt="gatito"
   />
   <h3 class="card_title">Anastacio</h3>
-  <h4 class="card_race">Siamés</h4>
-  <p class="card_description">
+  <h4 class="card_race_one">Siamés</h4>
+  <p class="card_description_one">
             Porte elegante, su patrón de color tan característico y sus ojos
             de un azul intenso, pero su historia se remonta a Asía al menos
             hace 500 años, donde tuvo su origen muy posiblemente.
@@ -25,8 +25,8 @@ const kittenTwo = `<li class="card">
   alt="sphynx-cat"
 />
 <h3 class="card_title">Fiona</h3>
-<h4 class="card_race">Sphynx</h4>
-<p class="card_description">
+<h4 class="card_race_two">Sphynx</h4>
+<p class="card_description_two">
   Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
   hasta con pinta de alienígena han llegado a definir a esta raza
   gatuna que se caracteriza por la «ausencia» de pelo.
@@ -40,8 +40,8 @@ const kittenThree = `<li class="card">
   alt="maine-coon-cat"
 />
 <h3 class="card_title">Cielo</h3>
-<h4 class="card_race">Maine Coon</h4>
-<p class="card_description">
+<h4 class="card_race_three">Maine Coon</h4>
+<p class="card_description_three">
   Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
   bella mirada se ha convertido en una de sus señas de identidad.
   Sus ojos son grandes y las orejas resultan largas y en punta.
@@ -71,22 +71,55 @@ buttonCancel.addEventListener("click", (event)=>{
 })
 
 const input_search_desc = document.querySelector('.js_in_search_desc');
-const input_search_select = document.querySelector('.js_select');
 const btnSearch = document.querySelector('.btn-search');
+const input_search_select = document.querySelector('.js_select');
+
+const descKittenOne = document.querySelector('.card_description_one');
+const descKittenTwo = document.querySelector('.card_description_two');
+const descKittenThree = document.querySelector('.card_description_three');
+const raceKittenOne = document.querySelector('.card_race_one');
+const raceKittenTwo = document.querySelector('.card_race_two');
+const raceKittenThree = document.querySelector('.card_race_three');
+
 btnSearch.addEventListener("click", (event)=>{
   event.preventDefault();
   const descrSearchText = input_search_desc.value;
   const selectSearchText = input_search_select.value;
-  if( kittenOne.includes(descrSearchText) ) {
-    console.log('Se ha encontrado la descripción del gato 1');
+
+  ulList.innerHTML = "";
+  if (descrSearchText != ""){
+    if (descKittenOne.textContent.includes(descrSearchText)){
+      console.log('Se ha encontrado la descripción del gato 1');
+      ulList.innerHTML = kittenOne;
     }
-    if( kittenTwo.includes(descrSearchText) ) {
-      console.log('Se ha encontrado la descripción del gato 2');
+    if (descKittenTwo.textContent.includes(descrSearchText)){
+      ulList.innerHTML += kittenTwo;
     }
-    if( kittenThree.includes(descrSearchText) ) {
-      console.log('Se ha encontrado la descripción del gato 3');
+    if (descKittenThree.textContent.includes(descrSearchText)){
+      ulList.innerHTML += kittenThree;
     }
-  
+  }
+
+  if (selectSearchText != ""){
+    if (raceKittenOne.textContent === selectSearchText){
+      console.log('Se ha encontrado la descripción del gato 1');
+      if (!ulList.innerHTML.includes(kittenOne)){
+        ulList.innerHTML += kittenOne;
+      }
+    }
+    if (raceKittenTwo.textContent === selectSearchText){
+      if (!ulList.innerHTML.includes(kittenTwo)){
+        ulList.innerHTML += kittenTwo;
+      }
+    }
+    if (raceKittenThree.textContent === selectSearchText){
+      if (!ulList.innerHTML.includes(kittenThree)){
+        ulList.innerHTML += kittenThree;
+        ;
+      }
+    }
+  }
 })
+
 
 
