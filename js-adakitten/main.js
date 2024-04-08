@@ -69,3 +69,24 @@ buttonCancel.addEventListener("click", (event)=>{
   formSection.classList.add('collapsed');
   formMenu.reset();
 })
+
+const input_search_desc = document.querySelector('.js_in_search_desc');
+const input_search_select = document.querySelector('.js_select');
+const btnSearch = document.querySelector('.btn-search');
+btnSearch.addEventListener("click", (event)=>{
+  event.preventDefault();
+  const descrSearchText = input_search_desc.value;
+  const selectSearchText = input_search_select.value;
+  if( kittenOne.includes(descrSearchText) ) {
+    console.log('Se ha encontrado la descripción del gato 1');
+    }
+    if( kittenTwo.includes(descrSearchText) ) {
+      console.log('Se ha encontrado la descripción del gato 2');
+    }
+    if( kittenThree.includes(descrSearchText) ) {
+      console.log('Se ha encontrado la descripción del gato 3');
+    }
+  
+})
+
+
