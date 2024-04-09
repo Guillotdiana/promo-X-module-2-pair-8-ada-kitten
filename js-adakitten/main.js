@@ -2,74 +2,90 @@
 
 const sectionList = document.querySelector (".js-list");
 
+const kittenOneImage = 'https://dev.adalab.es/gato-siames.webp';
+const kittenOneName = 'Anastacio';
+const kittenOneDesc =
+  ' Porte elegante, su patrón de color tan característico y sus ojos de un azul intenso, pero su historia se remonta a Asía al menos hace 500 años, donde tuvo su origen muy posiblemente.';
+const kittenOneRace = 'Siamés';
+
+const kittenTwoImage = 'https://dev.adalab.es/sphynx-gato.webp';
+const kittenTwoName = 'Fiona';
+const kittenTwoDesc =
+  ` Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
+  hasta con pinta de alienígena han llegado a definir a esta raza
+  gatuna que se caracteriza por la «ausencia» de pelo.`;
+const kittenTwoRace = 'Sphynx';
+
+const kittenThreeImage = 'https://dev.adalab.es/maine-coon-cat.webp';
+const kittenThreeName = 'Cielo';
+const kittenThreeDesc =
+  ` Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
+  bella mirada se ha convertido en una de sus señas de identidad.
+  Sus ojos son grandes y las orejas resultan largas y en punta.`;
+const kittenThreeRace = 'Maine Coon';
+
 const kittenOne = `<li class="card">
 <article>
   <img
     class="card_img"
-    src="https://dev.adalab.es/gato-siames.webp"
+    src=${kittenOneImage}
     alt="gatito"
   />
-  <h3 class="card_title">Anastacio</h3>
-  <h4 class="card_race_one">Siamés</h4>
+  <h3 class="card_title">${kittenOneName.toUpperCase()}</h3>
+  <h4 class="card_race_one">${kittenOneRace}</h4>
   <p class="card_description_one">
-            Porte elegante, su patrón de color tan característico y sus ojos
-            de un azul intenso, pero su historia se remonta a Asía al menos
-            hace 500 años, donde tuvo su origen muy posiblemente.
+  ${kittenOneDesc}
    </p>
 </article>
 </li>`;
 const kittenTwo = `<li class="card">
 <img
   class="card_img"
-  src="https://dev.adalab.es/sphynx-gato.webp"
+  src=${kittenTwoImage}
   alt="sphynx-cat"
 />
-<h3 class="card_title">Fiona</h3>
-<h4 class="card_race_two">Sphynx</h4>
+<h3 class="card_title">${kittenTwoName.toUpperCase()}</h3>
+<h4 class="card_race_two">${kittenTwoRace}</h4>
 <p class="card_description_two">
-  Produce fascinación y curiosidad. Exótico, raro, bello, extraño…
-  hasta con pinta de alienígena han llegado a definir a esta raza
-  gatuna que se caracteriza por la «ausencia» de pelo.
+${kittenTwoDesc}
 </p>
 </li>` ;
 
 const kittenThree = `<li class="card">
 <img
   class="card_img"
-  src="https://dev.adalab.es/maine-coon-cat.webp"
+  src=${kittenThreeImage}
   alt="maine-coon-cat"
 />
-<h3 class="card_title">Cielo</h3>
-<h4 class="card_race_three">Maine Coon</h4>
+<h3 class="card_title">${kittenThreeName.toUpperCase()}</h3>
+<h4 class="card_race_three">${kittenThreeRace}</h4>
 <p class="card_description_three">
-  Tienen la cabeza cuadrada y los ojos simétricos, por lo que su
-  bella mirada se ha convertido en una de sus señas de identidad.
-  Sus ojos son grandes y las orejas resultan largas y en punta.
+${kittenThreeDesc}
 </p>
 </li` ;
 
 const ulList = document.querySelector (".list");
 ulList.innerHTML = kittenOne + kittenTwo + kittenThree;
 
+// botón del +
 const buttonAdd = document.querySelector(".js-btn-add");
 const formSection = document.querySelector('.collapsed');
 formSection.classList.remove('collapsed');
 buttonAdd.addEventListener("click", (event)=>{
   event.preventDefault();
-  console.log('Holiiii');
   formSection.classList.toggle('collapsed');
 });
 
-const sectionMenu = document.querySelector(".js-section-menu");
+// botón cancelar
 const buttonCancel = document.querySelector(".js_btn_cancel");
 const formMenu = document.querySelector('.js_formMenu');
 buttonCancel.addEventListener("click", (event)=>{
-  event.preventDefault();
-  console.log('Cancelar');
+  // ocultar sección
   formSection.classList.add('collapsed');
+  // resetar inputs del formulario
   formMenu.reset();
 })
-
+ //búsqueda por descripción y raza
 const input_search_desc = document.querySelector('.js_in_search_desc');
 const btnSearch = document.querySelector('.btn-search');
 const input_search_select = document.querySelector('.js_select');
@@ -120,6 +136,5 @@ btnSearch.addEventListener("click", (event)=>{
     }
   }
 })
-
 
 
