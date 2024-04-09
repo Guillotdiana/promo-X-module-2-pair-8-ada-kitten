@@ -136,5 +136,3 @@ btnSearch.addEventListener("click", (event)=>{
     }
   }
 })
-
-
