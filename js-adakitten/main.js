@@ -27,24 +27,24 @@ const kittenThreeRace = 'Maine Coon';
 
 function renderKitten(url, desc, name, race) {
   const ulList = document.querySelector (".list"); 
-  ulList.innerHTML = `<li class="card">
+  ulList.innerHTML += `<li class="card">
   <article>
     <img
       class="card_img"
-      src= url
+      src= ${url}
       alt="gatito"
     />
-    <h3 class="card_title">name</h3>
-    <h4 class="card_race_one">race</h4>
+    <h3 class="card_title">${name}</h3>
+    <h4 class="card_race_one">${race}</h4>
     <p class="card_description_one">
-    desc
+    ${desc}
      </p>
   </article>
   </li>`;
 }
 renderKitten(kittenOneImage,kittenOneDesc,kittenOneName,kittenOneRace);
 renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace);
-renderKitten((kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace);)
+renderKitten(kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace);
 
 // const kittenOne = `<li class="card">
 // <article>
