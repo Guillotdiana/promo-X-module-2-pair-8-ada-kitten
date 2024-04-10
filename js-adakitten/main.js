@@ -1,6 +1,7 @@
 "use strict";
 
 const sectionList = document.querySelector (".js-list");
+const ulList = document.querySelector (".list");
 
 const kittenOneImage = 'https://dev.adalab.es/gato-siames.webp';
 const kittenOneName = 'Anastacio';
@@ -24,57 +25,126 @@ const kittenThreeDesc =
   Sus ojos son grandes y las orejas resultan largas y en punta.`;
 const kittenThreeRace = 'Maine Coon';
 
-const kittenOne = `<li class="card">
-<article>
-  <img
-    class="card_img"
-    src=${kittenOneImage}
-    alt="gatito"
-  />
-  <h3 class="card_title">${kittenOneName.toUpperCase()}</h3>
-  <h4 class="card_race_one">${kittenOneRace}</h4>
-  <p class="card_description_one">
-  ${kittenOneDesc}
-   </p>
-</article>
-</li>`;
-const kittenTwo = `<li class="card">
-<img
-  class="card_img"
-  src=${kittenTwoImage}
-  alt="sphynx-cat"
-/>
-<h3 class="card_title">${kittenTwoName.toUpperCase()}</h3>
-<h4 class="card_race_two">${kittenTwoRace}</h4>
-<p class="card_description_two">
-${kittenTwoDesc}
-</p>
-</li>` ;
+function renderKitten(url, desc, name, race) {
+  const ulList = document.querySelector (".list"); 
+  ulList.innerHTML = `<li class="card">
+  <article>
+    <img
+      class="card_img"
+      src= url
+      alt="gatito"
+    />
+    <h3 class="card_title">name</h3>
+    <h4 class="card_race_one">race</h4>
+    <p class="card_description_one">
+    desc
+     </p>
+  </article>
+  </li>`;
+}
+renderKitten(kittenOneImage,kittenOneDesc,kittenOneName,kittenOneRace);
+renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace);
+renderKitten((kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace);)
 
-const kittenThree = `<li class="card">
-<img
-  class="card_img"
-  src=${kittenThreeImage}
-  alt="maine-coon-cat"
-/>
-<h3 class="card_title">${kittenThreeName.toUpperCase()}</h3>
-<h4 class="card_race_three">${kittenThreeRace}</h4>
-<p class="card_description_three">
-${kittenThreeDesc}
-</p>
-</li` ;
+// const kittenOne = `<li class="card">
+// <article>
+//   <img
+//     class="card_img"
+//     src=${kittenOneImage}
+//     alt="gatito"
+//   />
+//   <h3 class="card_title">${kittenOneName.toUpperCase()}</h3>
+//   <h4 class="card_race_one">${kittenOneRace}</h4>
+//   <p class="card_description_one">
+//   ${kittenOneDesc}
+//    </p>
+// </article>
+// </li>`;
+// const kittenTwo = `<li class="card">
+// <img
+//   class="card_img"
+//   src=${kittenTwoImage}
+//   alt="sphynx-cat"
+// />
+// <h3 class="card_title">${kittenTwoName.toUpperCase()}</h3>
+// <h4 class="card_race_two">${kittenTwoRace}</h4>
+// <p class="card_description_two">
+// ${kittenTwoDesc}
+// </p>
+// </li>` ;
 
-const ulList = document.querySelector (".list");
-ulList.innerHTML = kittenOne + kittenTwo + kittenThree;
+// const kittenThree = `<li class="card">
+// <img
+//   class="card_img"
+//   src=${kittenThreeImage}
+//   alt="maine-coon-cat"
+// />
+// <h3 class="card_title">${kittenThreeName.toUpperCase()}</h3>
+// <h4 class="card_race_three">${kittenThreeRace}</h4>
+// <p class="card_description_three">
+// ${kittenThreeDesc}
+// </p>
+// </li` ;
+
+
+// ulList.innerHTML = kittenOne + kittenTwo + kittenThree;
 
 // botón del +
 const buttonAdd = document.querySelector(".js-btn-add");
 const formSection = document.querySelector('.collapsed');
+const newFormElement = document.querySelector('.js-section-menu');
 formSection.classList.remove('collapsed');
-buttonAdd.addEventListener("click", (event)=>{
+
+function showNewCatForm() {
+  formSection.classList.remove('collapsed');
+}
+function hideNewCatForm() {
+  formSection.classList.add('collapsed');
+}
+
+function handleClickNewCatForm(event) {
   event.preventDefault();
-  formSection.classList.toggle('collapsed');
-});
+  if (newFormElement.classList.contains('collapsed')) {
+    showNewCatForm();
+  } else {
+    hideNewCatForm() ;
+  }
+}
+buttonAdd.addEventListener('click', handleClickNewCatForm);
+
+//botón añadir
+
+const btnAddForm = document.querySelector('.js_btn_add_form');
+const imageFormInput = document.querySelector('.js_form_image');
+const nameFormInput = document.querySelector('.js_form_name');
+const raceFormInput = document.querySelector('.js_form_race');
+const descriptionFormInput = document.querySelector('.js_form_description');
+
+function addNewKitten(event) {
+  event.preventDefault();
+  const imageFormValue = imageFormInput.value;
+  const nameFormValue = nameFormInput.value;
+  const raceFormValue = raceFormInput.value;
+  const descriptionFormValue = descriptionFormInput.value;
+
+  ulList.innerHTML += 
+  `<li class="card">
+<article>
+  <img
+    class="card_img"
+    src=${imageFormValue}
+    alt="gatito"
+  />
+  <h3 class="card_title">${nameFormValue.toUpperCase()}</h3>
+  <h4 class="card_race_one">${raceFormValue}</h4>
+  <p class="card_description_one">
+  ${descriptionFormValue}
+   </p>
+</article>
+</li>`;
+}
+
+btnAddForm.addEventListener('click', addNewKitten);
 
 // botón cancelar
 const buttonCancel = document.querySelector(".js_btn_cancel");
@@ -85,6 +155,7 @@ buttonCancel.addEventListener("click", (event)=>{
   // resetar inputs del formulario
   formMenu.reset();
 })
+
  //búsqueda por descripción y raza
 const input_search_desc = document.querySelector('.js_in_search_desc');
 const btnSearch = document.querySelector('.btn-search');
