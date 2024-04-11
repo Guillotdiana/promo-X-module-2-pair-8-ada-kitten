@@ -26,7 +26,7 @@ const kittenThreeDesc =
 const kittenThreeRace = 'Maine Coon';
 
 function renderKitten(url, desc, name, race) {
-  const ulList = document.querySelector (".list"); 
+
   ulList.innerHTML += `<li class="card">
   <article>
     <img
@@ -168,42 +168,46 @@ const raceKittenOne = document.querySelector('.card_race_one');
 const raceKittenTwo = document.querySelector('.card_race_two');
 const raceKittenThree = document.querySelector('.card_race_three');
 
-btnSearch.addEventListener("click", (event)=>{
+const filterKitten = (event)=>{
   event.preventDefault();
   const descrSearchText = input_search_desc.value;
   const selectSearchText = input_search_select.value;
 
   ulList.innerHTML = "";
+  console.log(descKittenOne.textContent);
   if (descrSearchText != ""){
     if (descKittenOne.textContent.includes(descrSearchText)){
       console.log('Se ha encontrado la descripción del gato 1');
-      ulList.innerHTML = kittenOne;
+      renderKitten(kittenOneImage,kittenOneDesc,kittenOneName,kittenOneRace);
     }
-    if (descKittenTwo.textContent.includes(descrSearchText)){
-      ulList.innerHTML += kittenTwo;
+    /*if (descKittenTwo.includes(descrSearchText)){
+      ulList.innerHTML += renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace);
     }
-    if (descKittenThree.textContent.includes(descrSearchText)){
-      ulList.innerHTML += kittenThree;
-    }
+    if (descKittenThree.includes(descrSearchText)){
+      ulList.innerHTML += renderKitten(kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace);
+    }*/
   }
+  
 
   if (selectSearchText != ""){
     if (raceKittenOne.textContent === selectSearchText){
       console.log('Se ha encontrado la descripción del gato 1');
       if (!ulList.innerHTML.includes(kittenOne)){
-        ulList.innerHTML += kittenOne;
+        ulList.innerHTML += renderKitten(kittenOneImage,kittenOneDesc,kittenOneName,kittenOneRace);
       }
     }
     if (raceKittenTwo.textContent === selectSearchText){
       if (!ulList.innerHTML.includes(kittenTwo)){
-        ulList.innerHTML += kittenTwo;
+        ulList.innerHTML += renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace);
       }
     }
     if (raceKittenThree.textContent === selectSearchText){
       if (!ulList.innerHTML.includes(kittenThree)){
-        ulList.innerHTML += kittenThree;
+        ulList.innerHTML += renderKitten(kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace);
         ;
       }
     }
   }
-})
+}
+
+btnSearch.addEventListener('click', filterKitten);
