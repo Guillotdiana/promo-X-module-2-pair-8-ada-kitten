@@ -174,35 +174,35 @@ const filterKitten = (event)=>{
   const selectSearchText = input_search_select.value;
 
   ulList.innerHTML = "";
-  console.log(descKittenOne.textContent);
   if (descrSearchText != ""){
     if (descKittenOne.textContent.includes(descrSearchText)){
       console.log('Se ha encontrado la descripción del gato 1');
       renderKitten(kittenOneImage,kittenOneDesc,kittenOneName,kittenOneRace);
     }
-    /*if (descKittenTwo.includes(descrSearchText)){
-      ulList.innerHTML += renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace);
+    if (descKittenTwo.textContent.includes(descrSearchText)){
+      console.log('Se ha encontrado la descripción del gato 2');
+      renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace);
     }
-    if (descKittenThree.includes(descrSearchText)){
-      ulList.innerHTML += renderKitten(kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace);
-    }*/
+    if (descKittenThree.textContent.includes(descrSearchText)){
+      renderKitten(kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace);
+    }
   }
   
 
   if (selectSearchText != ""){
     if (raceKittenOne.textContent === selectSearchText){
       console.log('Se ha encontrado la descripción del gato 1');
-      if (!ulList.innerHTML.includes(kittenOne)){
+      if (!ulList.innerHTML.includes(renderKitten(kittenOneImage,kittenOneDesc,kittenOneName,kittenOneRace))){
         ulList.innerHTML += renderKitten(kittenOneImage,kittenOneDesc,kittenOneName,kittenOneRace);
       }
     }
     if (raceKittenTwo.textContent === selectSearchText){
-      if (!ulList.innerHTML.includes(kittenTwo)){
+      if (!ulList.innerHTML.includes( renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace))){
         ulList.innerHTML += renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace);
       }
     }
     if (raceKittenThree.textContent === selectSearchText){
-      if (!ulList.innerHTML.includes(kittenThree)){
+      if (!ulList.innerHTML.includes(renderKitten(kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace))){
         ulList.innerHTML += renderKitten(kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace);
         ;
       }
