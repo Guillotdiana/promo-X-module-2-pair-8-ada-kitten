@@ -192,20 +192,18 @@ const filterKitten = (event)=>{
   if (selectSearchText != ""){
     if (raceKittenOne.textContent === selectSearchText){
       console.log('Se ha encontrado la descripción del gato 1');
-      if (!ulList.innerHTML.includes(renderKitten(kittenOneImage,kittenOneDesc,kittenOneName,kittenOneRace))){
+     
         ulList.innerHTML += renderKitten(kittenOneImage,kittenOneDesc,kittenOneName,kittenOneRace);
-      }
+      
     }
     if (raceKittenTwo.textContent === selectSearchText){
-      if (!ulList.innerHTML.includes( renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace))){
         ulList.innerHTML += renderKitten(kittenTwoImage,kittenTwoDesc,kittenTwoName,kittenTwoRace);
-      }
+      
     }
     if (raceKittenThree.textContent === selectSearchText){
-      if (!ulList.innerHTML.includes(renderKitten(kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace))){
+    
         ulList.innerHTML += renderKitten(kittenThreeImage,kittenThreeDesc,kittenThreeName,kittenThreeRace);
-        ;
-      }
+        
     }
   }
 }
