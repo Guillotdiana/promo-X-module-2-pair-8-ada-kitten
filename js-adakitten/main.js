@@ -165,6 +165,7 @@ const filterKitten = (event)=>{
   const selectSearchText = input_search_select.value;
 
   ulList.innerHTML = "";
+  
 
   if (descrSearchText != ""){
     for (let i = 0; i<kittenDataList.length; i++ ){
@@ -172,39 +173,21 @@ const filterKitten = (event)=>{
         renderKitten(kittenDataList[i]);
       }
     }
+  }else{
+    const message = document.querySelector('.js-message');
+    message.innerHTML=`<p> Por favor, rellene todos los campos antes de realizar su búsqueda. </p>`;
   }
-   
 
-  
-
-
-  /*if (descrSearchText != ""){
-    if (kittenDataList[0].desc.includes(descrSearchText)){
-      renderKitten(kittenDataList[0]);
-    }
-    if (kittenDataList[1].desc.includes(descrSearchText)){
-      renderKitten(kittenDataList[1]);
-    }
-    if (kittenDataList[2].desc.includes(descrSearchText)){
-      renderKitten(kittenDataList[2]);
+  if (selectSearchText != ""){
+    for (let i = 0; i<kittenDataList.length; i++ ){
+      if (kittenDataList[i].race.includes(selectSearchText)){
+        renderKitten(kittenDataList[i]);
+      }
     }
   }else{
     const message = document.querySelector('.js-message');
     message.innerHTML=`<p> Por favor, rellene todos los campos antes de realizar su búsqueda. </p>`;
-  }*/
-  if (selectSearchText != ""){
-  
-    if (kittenDataList[0].race === selectSearchText){
-       renderKitten(kittenDataList[0]); 
-    }
-    if (kittenDataList[1].race === selectSearchText){
-        renderKitten(kittenDataList[1]);
-    }
-    if (kittenDataList[2].desc === selectSearchText){
-        renderKitten(kittenDataList[2]); 
-    }
   }
-  
 }
   
 
