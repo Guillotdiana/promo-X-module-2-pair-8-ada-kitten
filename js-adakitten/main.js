@@ -73,9 +73,18 @@ function renderKitten(kittenData) {
   </article>
   </li>`;
 }
-renderKitten(kittenDataList[0]);
+/*renderKitten(kittenDataList[0]);
 renderKitten(kittenDataList[1]);
-renderKitten(kittenDataList[2]);
+renderKitten(kittenDataList[2]);*/
+
+function renderKittenList (kittenDataList){
+  renderKitten(kittenDataList[0]);
+  renderKitten(kittenDataList[1]);
+  renderKitten(kittenDataList[2]);
+  
+}
+
+renderKittenList (kittenDataList);
 
 // botón del +
 const buttonAdd = document.querySelector(".js-btn-add");
@@ -156,7 +165,20 @@ const filterKitten = (event)=>{
   const selectSearchText = input_search_select.value;
 
   ulList.innerHTML = "";
+
   if (descrSearchText != ""){
+    for (let i = 0; i<kittenDataList.length; i++ ){
+      if (kittenDataList[i].desc.includes(descrSearchText)){
+        renderKitten(kittenDataList[i]);
+      }
+    }
+  }
+   
+
+  
+
+
+  /*if (descrSearchText != ""){
     if (kittenDataList[0].desc.includes(descrSearchText)){
       renderKitten(kittenDataList[0]);
     }
@@ -167,12 +189,9 @@ const filterKitten = (event)=>{
       renderKitten(kittenDataList[2]);
     }
   }else{
-    renderKitten(kittenDataList[0]);
-    renderKitten(kittenDataList[1]);
-    renderKitten(kittenDataList[2]);
     const message = document.querySelector('.js-message');
     message.innerHTML=`<p> Por favor, rellene todos los campos antes de realizar su búsqueda. </p>`;
-  }
+  }*/
   if (selectSearchText != ""){
   
     if (kittenDataList[0].race === selectSearchText){

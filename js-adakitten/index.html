@@ -89,3 +89,10 @@
     <script src="./main.js"></script>
   </body>
 </html>
+
+for (let i = 0; i<kittenDataList.length; i++ ){
+  if (descrSearchText != ""){
+    if (kittenDataList[i].desc.includes(descrSearchText)){
+      renderKittenList(kittenDataList[i]);
+    }
+}
